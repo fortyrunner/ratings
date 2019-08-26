@@ -28,11 +28,11 @@ function adjustRating(rating: string, rateBand: string) : [string, string] {
 }
 
 
-console.info(adjustRating("BB", "B"));
-console.info(adjustRating("BBB*", "B"));
-console.info(adjustRating("BBB+", "B"));
-console.info(adjustRating("BB+NR", "B"));
+console.info(adjustRating("BB", "B")[0]== "BB");
+console.info(adjustRating("BBB*", "B")[0]== "BBB");
+console.info(adjustRating("BBB+", "B")[0]== "BBB");
+console.info(adjustRating("BB+NR", "B")[0]== "BB");
 
-console.info(adjustRating("CCC+NR", "C"));
+console.info(adjustRating("CCC+NR", "C")[0]== "CCC");
 
-console.info(adjustRating("", "B"));
+console.info(adjustRating("", "B")[0]== "");
