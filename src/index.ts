@@ -11,31 +11,24 @@ function adjustRating(rating: string, rateBand: string) : [string, string] {
 
   if (rating.indexOf(rateBand) >= 0){
 
-    let [newRating, matched] = nRating(rating, rateBand, 3);
+    const list = [3, 2, 1];
 
-    if (matched){
-      return [newRating, rating]
-    }
+    for (let i of list){
+      const [newRating, matched] = nRating(rating, rateBand, i);
 
-    [newRating, matched] = nRating(rating, rateBand, 2);
-    if (matched){
-      return [newRating, rating]
-    }
+      if (matched){
+        return [newRating, rating]
+      }
 
-    [newRating, matched] = nRating(rating, rateBand, 1);
-    if (matched){
-      return [newRating, rating]
     }
 
   }
-
-  console.info("No match");
 
   return [rating, rating];
 }
 
 
-
+console.info(adjustRating("BB", "B"));
 console.info(adjustRating("BBB*", "B"));
 console.info(adjustRating("BBB+", "B"));
 console.info(adjustRating("BB+NR", "B"));
