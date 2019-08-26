@@ -1,9 +1,9 @@
-function nRating(rating: string, rateBand: string, n: number):[string, boolean, string] {
+function nRating(rating: string, rateBand: string, n: number):[string, boolean] {
   const rn:string = rateBand.repeat(n);
   if (rating.indexOf(rn) >= 0){
-    return [rn, true, rating];
+    return [rn, true];
   }
-  return [rating, false, rating];
+  return [rating, false];
 }
 
 
@@ -11,7 +11,7 @@ function adjustRating(rating: string, rateBand: string) : [string, string] {
 
   if (rating.indexOf(rateBand) >= 0){
 
-    let [newRating, matched, originalRating] = nRating(rating, rateBand, 3);
+    let [newRating, matched] = nRating(rating, rateBand, 3);
 
     if (matched){
       return [newRating, rating]
@@ -29,7 +29,7 @@ function adjustRating(rating: string, rateBand: string) : [string, string] {
 
   }
 
-  console.info("No match")
+  console.info("No match");
 
   return [rating, rating];
 }
